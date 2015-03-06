@@ -9,7 +9,7 @@ Class demos can be downloaded from the course web site: <a href="http://www.stan
 Lecture series can be viewed on iTunes U: <a href="https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099">Developing iOS Apps with Swift</a>
 
 
-Assignment 1 - Calculator
+Assignment I - Calculator
 
 Assignment II - Calculator Brain
 
