@@ -11,6 +11,8 @@ Lecture series can be viewed on iTunes U: <a href="https://itunes.apple.com/us/c
 
 Assignment 1 - Calculator
 
-Assignment 2
+Assignment II - Calculator Brain
 
-Assignment 3
+Assignment III - Graphing Calculator
+
+Assignment IV - Smashtag Mentions
