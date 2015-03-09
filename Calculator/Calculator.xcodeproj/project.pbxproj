@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		1BBC13CE1AA9536400A3F23D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC13CD1AA9536400A3F23D /* AppDelegate.swift */; };
 		1BBC13D01AA9536400A3F23D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC13CF1AA9536400A3F23D /* ViewController.swift */; };
-		1BBC13D31AA9536400A3F23D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC13D11AA9536400A3F23D /* Main.storyboard */; };
 		1BBC13D51AA9536400A3F23D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC13D41AA9536400A3F23D /* Images.xcassets */; };
 		1BBC13D81AA9536400A3F23D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC13D61AA9536400A3F23D /* LaunchScreen.xib */; };
 		1BBC13E41AA9536400A3F23D /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC13E31AA9536400A3F23D /* CalculatorTests.swift */; };
+		1BE310E91AAA4FFF00F420EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE310E81AAA4FFF00F420EF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +30,12 @@
 		1BBC13CC1AA9536400A3F23D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BBC13CD1AA9536400A3F23D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BBC13CF1AA9536400A3F23D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1BBC13D21AA9536400A3F23D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BBC13D41AA9536400A3F23D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1BBC13D71AA9536400A3F23D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1BBC13DD1AA9536400A3F23D /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBC13E21AA9536400A3F23D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BBC13E31AA9536400A3F23D /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		1BE310E81AAA4FFF00F420EF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 			children = (
 				1BBC13CD1AA9536400A3F23D /* AppDelegate.swift */,
 				1BBC13CF1AA9536400A3F23D /* ViewController.swift */,
-				1BBC13D11AA9536400A3F23D /* Main.storyboard */,
+				1BE310E81AAA4FFF00F420EF /* Main.storyboard */,
 				1BBC13D41AA9536400A3F23D /* Images.xcassets */,
 				1BBC13D61AA9536400A3F23D /* LaunchScreen.xib */,
 				1BBC13CB1AA9536400A3F23D /* Supporting Files */,
@@ -192,7 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BBC13D31AA9536400A3F23D /* Main.storyboard in Resources */,
+				1BE310E91AAA4FFF00F420EF /* Main.storyboard in Resources */,
 				1BBC13D81AA9536400A3F23D /* LaunchScreen.xib in Resources */,
 				1BBC13D51AA9536400A3F23D /* Images.xcassets in Resources */,
 			);
@@ -236,14 +236,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1BBC13D11AA9536400A3F23D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1BBC13D21AA9536400A3F23D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1BBC13D61AA9536400A3F23D /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -407,6 +399,7 @@
 				1BBC13E91AA9536400A3F23D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BBC13EA1AA9536400A3F23D /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +408,7 @@
 				1BBC13EC1AA9536400A3F23D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
