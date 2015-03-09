@@ -13,6 +13,7 @@ class CalculatorBrain {
     private enum Op: Printable
     {
         case Operand(Double)
+        case Variable(String)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
@@ -21,6 +22,8 @@ class CalculatorBrain {
                 switch self {
                 case .Operand(let operand):
                     return "\(operand)"
+                case .Variable(let variable):
+                    return "\(variable)"
                 case .UnaryOperation(let symbol, _):
                     return symbol
                 case .BinaryOperation(let symbol, _):
@@ -34,6 +37,12 @@ class CalculatorBrain {
     
     private var knownOps = [String: Op]()
     
+    var variables = Dictionary<String, Double>()
+    
+    private var error: String?
+    
+    private var lastOp = Op?()
+    
     init(){
         func learnOp(op: Op) {
             knownOps[op.description] = op
@@ -45,10 +54,7 @@ class CalculatorBrain {
         learnOp(Op.UnaryOperation("√", { sqrt($0) } ) )
         learnOp(Op.UnaryOperation("sin", { sin($0) } ) )
         learnOp(Op.UnaryOperation("cos", { cos($0) } ) )
-        learnOp(Op.UnaryOperation("tan", { tan($0) } ) )
-//        learnOp(Op.UnaryOperation("±", { -$0 }, nil))
-//        learnOp(Op.NullaryOperation("π", { M_PI }))
-//        learnOp(Op.NullaryOperation("e", { M_E }))
+        learnOp(Op.UnaryOperation("π", { M_PI * $0 } ) )
     }
     
     var program: AnyObject { // guaranteed to be a PropertyList
@@ -77,6 +83,12 @@ class CalculatorBrain {
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)
+            case .Variable(let key):
+                if let value = variables[key] {
+                    return (value, remainingOps)
+                }
+                error = "Variable Not Found in Dictionary"
+                return (nil, remainingOps)
             case .UnaryOperation(_,let operation):
                 let operandEvaluation = evaluate(remainingOps)
                 if let operand = operandEvaluation.result {
@@ -111,5 +123,11 @@ class CalculatorBrain {
             opStack.append(operation)
         }
         return evaluate()
+    }
+    
+    func clear(){
+        opStack.removeAll()
+        variables = Dictionary<String, Double>()
+        lastOp = nil
     }
 }

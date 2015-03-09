@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var history: UILabel!
     @IBOutlet weak var display: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
                 }
             }
             println("digit = \(digit)")
+            addToHistory(digit)
         }
     }
     
@@ -43,6 +45,7 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingANumber {
             enter()
         }
+        addToHistory(operation)
         if let operation = sender.currentTitle {
             if let result = brain.performOperation(operation) {
                 displayValue = result
@@ -53,7 +56,21 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func clear(sender: UIButton) {
+        display.text = "0"
+        history.text = " "
+        brain.clear()
+        history.text = " "
+
+    }
     
+    func addToHistory(value: String) {
+        if let oldText = history.text {
+            history.text = oldText + " " + value
+        }else {
+            history.text = value
+        }
+    }
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
