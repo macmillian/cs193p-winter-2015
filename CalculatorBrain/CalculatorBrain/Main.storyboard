@@ -196,6 +196,9 @@
                                 <state key="normal" title="→M">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveMemory" destination="BYZ-38-t0r" eventType="touchUpInside" id="Owe-vy-GK9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pR-XB-efL">
                                 <rect key="frame" x="248" y="104" width="104" height="91"/>
@@ -203,6 +206,9 @@
                                 <state key="normal" title="M">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loadMemory" destination="BYZ-38-t0r" eventType="touchUpInside" id="LB9-ls-gtg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs3-P8-VnD">
                                 <rect key="frame" x="136" y="104" width="104" height="91"/>

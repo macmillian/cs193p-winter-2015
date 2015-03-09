@@ -23,7 +23,7 @@ class CalculatorBrain {
                 case .Operand(let operand):
                     return "\(operand)"
                 case .Variable(let variable):
-                    return "\(variable)"
+                    return variable
                 case .UnaryOperation(let symbol, _):
                     return symbol
                 case .BinaryOperation(let symbol, _):
@@ -37,7 +37,7 @@ class CalculatorBrain {
     
     private var knownOps = [String: Op]()
     
-    var variables = Dictionary<String, Double>()
+    var variableValues = Dictionary<String, Double>()
     
     private var error: String?
     
@@ -84,7 +84,7 @@ class CalculatorBrain {
             case .Operand(let operand):
                 return (operand, remainingOps)
             case .Variable(let key):
-                if let value = variables[key] {
+                if let value = variableValues[key] {
                     return (value, remainingOps)
                 }
                 error = "Variable Not Found in Dictionary"
@@ -110,11 +110,17 @@ class CalculatorBrain {
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
         println("\(opStack) =  \(result) with \(remainder) left over")
+        println("variables \(variableValues) ")
         return result
     }
     
     func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
+        return evaluate()
+    }
+    
+    func pushOperand(symbol: String) -> Double? {
+        opStack.append(Op.Variable(symbol))
         return evaluate()
     }
     
@@ -127,7 +133,17 @@ class CalculatorBrain {
     
     func clear(){
         opStack.removeAll()
-        variables = Dictionary<String, Double>()
+        variableValues = Dictionary<String, Double>()
         lastOp = nil
+    }
+    
+    var description: String {
+        get {
+            var desc: String = ""
+            for thing in opStack {
+                desc += " \(thing) "
+            }
+            return desc + " = "
+        }
     }
 }

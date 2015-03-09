@@ -36,8 +36,8 @@ class ViewController: UIViewController {
                 }
             }
             println("digit = \(digit)")
-            addToHistory(digit)
         }
+        history.text = brain.description
     }
     
     @IBAction func operate(sender: UIButton) {
@@ -45,7 +45,6 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingANumber {
             enter()
         }
-        addToHistory(operation)
         if let operation = sender.currentTitle {
             if let result = brain.performOperation(operation) {
                 displayValue = result
@@ -53,40 +52,64 @@ class ViewController: UIViewController {
                 displayValue = 0
             }
         }
-        
+        history.text = brain.description
     }
     
     @IBAction func clear(sender: UIButton) {
         display.text = "0"
-        history.text = " "
+        //history.text = " "
         brain.clear()
-        history.text = " "
+        brain.variableValues.removeValueForKey("M")
+        history.text = brain.description
 
-    }
-    
-    func addToHistory(value: String) {
-        if let oldText = history.text {
-            history.text = oldText + " " + value
-        }else {
-            history.text = value
-        }
     }
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue) {
+        if let result = brain.pushOperand(displayValue!) {
             displayValue = result
         } else {
             displayValue = 0
         }
+        history.text = brain.description
+    }
+
+    
+    @IBAction func saveMemory() {
+        if let value = displayValue {
+            //brain.saveMemory(value)
+            brain.variableValues["M"] = value
+        }
+        userIsInTheMiddleOfTypingANumber = false
+        if let result = brain.evaluate() {
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
+        history.text = brain.description
     }
     
-    var displayValue: Double {
+    @IBAction func loadMemory() {
+        if let result = brain.pushOperand("M") {
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
+        history.text = brain.description
+    }
+
+
+    var displayValue: Double? {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set {
-            display.text = "\(newValue)"
+            if(newValue != nil){
+                display.text = "\(newValue!)"
+            }else{
+                display.text = "0"
+            }
+            
             userIsInTheMiddleOfTypingANumber = false
         }
     }
