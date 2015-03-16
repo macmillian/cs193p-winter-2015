@@ -2,7 +2,7 @@
 
 Homework Assignment Solutions for Stanford CS193P Winter 2015
 
-Xcode 6.1.1
+Xcode 6.2
 
 Class demos can be downloaded from the course web site: <a target="_blank"  href="http://www.stanford.edu/class/cs193p/cgi-bin/drupal/">CS 193P iPhone Application Development</a>
 
