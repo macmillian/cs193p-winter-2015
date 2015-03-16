@@ -100,6 +100,8 @@ class ViewController: UIViewController {
         operandStack.append(displayValue)
         println("operandStack = \(operandStack)")
         
+        addToHistory("⏎")
+        
     }
     
     var displayValue: Double {
