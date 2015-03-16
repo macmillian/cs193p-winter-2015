@@ -16,3 +16,5 @@ Assignment II - Calculator Brain
 Assignment III - Graphing Calculator
 
 Assignment IV - Smashtag Mentions
+
+Assignment V - Animation
