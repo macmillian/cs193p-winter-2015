@@ -111,6 +111,7 @@ class CalculatorBrain {
         let (result, remainder) = evaluate(opStack)
         println("\(opStack) =  \(result) with \(remainder) left over")
         println("variables \(variableValues) ")
+        //println("program \(program) ")
         return result
     }
     
@@ -140,10 +141,46 @@ class CalculatorBrain {
     var description: String {
         get {
             var desc: String = ""
-            for thing in opStack {
-                desc += " \(thing) "
-            }
-            return desc + " = "
+            //for thing in opStack {
+            //for thing in program {
+            //    desc += " \(thing) "
+            //}
+            //return desc
+            //var reverseStack = opStack.reverse()
+            //let(desc, _) = describe(reverseStack)
+            //return desc + " = "
+            
+            return desc
         }
+    }
+    
+    private func describe(ops: [Op]) -> (result: String, remainingOps: [Op]){
+        println("describing \(ops) ")
+        if !ops.isEmpty {
+            var remainingOps = ops
+            let op = remainingOps.removeLast()
+            switch op {
+            case .Operand(let operand):
+                return ("\(operand)", remainingOps)
+            case .Variable(let key):
+                return (key + ", ", remainingOps)
+            case .UnaryOperation(_,let operation):
+                //let operandEvaluation = evaluate(remainingOps)
+                //if let operand = operandEvaluation.result {
+                //    return (operation(operand), operandEvaluation.remainingOps)
+                //}
+                return ("(" + ")", remainingOps)
+            case .BinaryOperation(_,let operation):
+                //let op1Evaluation = evaluate(remainingOps)
+                //if let operand1 = op1Evaluation.result {
+                //    let op2Evaluation = evaluate(op1Evaluation.remainingOps)
+                //    if let operand2 = op2Evaluation.result {
+                //        return (operation(operand1, operand2), op2Evaluation.remainingOps)
+                //    }
+                //}
+                return ("(" + ")", remainingOps)
+            }
+        }
+        return ("", ops)
     }
 }

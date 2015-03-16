@@ -77,7 +77,6 @@ class ViewController: UIViewController {
     
     @IBAction func saveMemory() {
         if let value = displayValue {
-            //brain.saveMemory(value)
             brain.variableValues["M"] = value
         }
         userIsInTheMiddleOfTypingANumber = false
@@ -104,8 +103,8 @@ class ViewController: UIViewController {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set {
-            if(newValue != nil){
-                display.text = "\(newValue!)"
+            if let value = newValue{
+                display.text = "\(value)"
             }else{
                 display.text = "0"
             }
