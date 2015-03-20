@@ -1,0 +1,3 @@
+language: objective-c
+xcode_project: CalculatorBrain/CalculatorBrain.xcodeproj 
+xcode_scheme: CalculatorBrainTests
