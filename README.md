@@ -2,7 +2,7 @@
 
 Homework Assignment Solutions for Stanford CS193P Winter 2015
 
-<img src="https://travis-ci.org/riesamac/cs193p-winter-2015.svg?branch=master" />
+<a href="https://travis-ci.org/riesamac/cs193p-winter-2015"><img src="https://travis-ci.org/riesamac/cs193p-winter-2015.svg?branch=master" /><a/>
 
 Xcode 6.2
 
