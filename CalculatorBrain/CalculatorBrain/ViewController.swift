@@ -66,11 +66,16 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue!) {
-            displayValue = result
-        } else {
+        if let value = displayValue{
+            if let result = brain.pushOperand(value) {
+                displayValue = result
+            } else {
+                displayValue = 0
+            }
+        }else {
             displayValue = 0
         }
+        
         history.text = brain.description
     }
 
