@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: CalculatorBrain/CalculatorBrain.xcodeproj 
 xcode_scheme: CalculatorBrainTests
-xcode_sdk: iphonesimulator8.1
+xcode_sdk: iphonesimulator8.2
