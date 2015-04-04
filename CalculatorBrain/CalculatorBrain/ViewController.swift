@@ -20,6 +20,37 @@ class ViewController: UIViewController {
     
     var brain = CalculatorBrain()
     
+    @IBAction func back(sender: UIButton) {
+        if userIsInTheMiddleOfTypingANumber {
+            if countElements(display.text!) > 0 {
+                var text = display.text!
+                text = dropLast(text)
+                if countElements(text) > 0 {
+                    display.text = text
+                }else{
+                    display.text = "0"
+                }
+            }
+        }
+        
+        //addToHistory("🔙")
+    }
+    
+    @IBAction func plusMinus(sender: UIButton) {
+        if userIsInTheMiddleOfTypingANumber {
+            //change the sign of the number and allow typing to continue
+            var text = display.text!
+            if(text[text.startIndex] == "-"){
+                display.text = dropFirst(text)
+            }else{
+                display.text = "-" + text
+            }
+            //addToHistory("±")
+        }else{
+            operate(sender)
+        }
+    }
+    
     @IBAction func appendDigit(sender: UIButton) {
         if let digit = sender.currentTitle{
             if( numberHasADecimalPoint && digit == "."){
@@ -29,6 +60,10 @@ class ViewController: UIViewController {
                     numberHasADecimalPoint = true
                 }
                 if userIsInTheMiddleOfTypingANumber {
+                    var text = display.text!
+                    if(text[text.startIndex] == "0"){
+                        text = dropFirst(text)
+                    }
                     display.text = display.text! + digit
                 } else {
                     display.text = digit
