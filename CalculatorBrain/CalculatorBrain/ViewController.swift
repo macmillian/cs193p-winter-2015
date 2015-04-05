@@ -28,9 +28,18 @@ class ViewController: UIViewController {
                 if countElements(text) > 0 {
                     display.text = text
                 }else{
-                    display.text = "0"
+                    display.text = " "
                 }
             }
+        }else{
+            //remove last item from program/brain opStack
+            if let result = brain.removeLast() {
+                displayValue = result
+            } else {
+                displayValue = 0
+            }
+            updateUI()
+            
         }
         
         //addToHistory("🔙")
@@ -72,7 +81,7 @@ class ViewController: UIViewController {
             }
             println("digit = \(digit)")
         }
-        history.text = brain.description
+        updateUI()
     }
     
     @IBAction func operate(sender: UIButton) {
@@ -84,18 +93,19 @@ class ViewController: UIViewController {
             if let result = brain.performOperation(operation) {
                 displayValue = result
             } else {
-                displayValue = 0
+                displayValue = nil
             }
         }
-        history.text = brain.description
+        updateUI()
     }
     
     @IBAction func clear(sender: UIButton) {
-        display.text = "0"
+        display.text = " "
         //history.text = " "
         brain.clear()
         brain.variableValues.removeValueForKey("M")
-        history.text = brain.description
+        
+        updateUI()
 
     }
     
@@ -105,13 +115,13 @@ class ViewController: UIViewController {
             if let result = brain.pushOperand(value) {
                 displayValue = result
             } else {
-                displayValue = 0
+                displayValue = nil
             }
         }else {
-            displayValue = 0
+            displayValue = nil
         }
         
-        history.text = brain.description
+        updateUI()
     }
 
     
@@ -123,34 +133,62 @@ class ViewController: UIViewController {
         if let result = brain.evaluate() {
             displayValue = result
         } else {
-            displayValue = 0
+            displayValue = nil
         }
-        history.text = brain.description
+        updateUI()
     }
     
     @IBAction func loadMemory() {
         if let result = brain.pushOperand("M") {
             displayValue = result
         } else {
-            displayValue = 0
+            displayValue = nil
         }
-        history.text = brain.description
+        updateUI()
     }
 
 
     var displayValue: Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
+//            if let value = newValue{
+//                display.text = "\(value)"
+//            }else{
+//                display.text = "0"
+//            }
+//            
+//            userIsInTheMiddleOfTypingANumber = false
+            
+            
+//            if (newValue != nil) {
+//                let numberFormatter = NSNumberFormatter()
+//                numberFormatter.numberStyle = .DecimalStyle
+//                numberFormatter.maximumFractionDigits = 10
+//                display.text = numberFormatter.stringFromNumber(newValue!)
             if let value = newValue{
                 display.text = "\(value)"
-            }else{
-                display.text = "0"
+            } else {
+                if let result = brain.evaluateAndReportErrors() as? String {
+                    display.text = result
+                } else {
+                    display.text = " "
+                }
             }
-            
             userIsInTheMiddleOfTypingANumber = false
+            //history.text = brain.description != "" ? brain.description + " =" : ""
         }
+    }
+    
+    func updateUI(){
+        history.text = brain.description
+        
+//        if let result = brain.evaluate() {
+//            displayValue = result
+//        } else {
+//            displayValue = 0
+//        }
     }
 }
 
