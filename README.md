@@ -13,6 +13,7 @@ Lecture series can be viewed on iTunes U: <a target="_blank"  href="https://itun
 
 Assignment I - Calculator 
 - Completed (includes extra credit tasks)
+- <img src="https://www.riesam.biz/images/Calculator.png" />
 
 
 Assignment II - Calculator Brain
