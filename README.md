@@ -13,13 +13,14 @@ Lecture series can be viewed on iTunes U: <a target="_blank"  href="https://itun
 
 Assignment I - Calculator 
 - Completed (includes extra credit tasks)
-- <img src="http://www.riesam.biz/images/Calculator.png" />
+- <a href="http://www.riesam.biz/images/Calculator.png" target="_blank" ><img src="http://www.riesam.biz/images/Calculator.png" width="200px"/></a>
 
 
 Assignment II - Calculator Brain
 - In Progress   
 - Travis CI  <a href="https://travis-ci.org/riesamac/cs193p-winter-2015"><img src="https://travis-ci.org/riesamac/cs193p-winter-2015.svg?branch=master" /><a/>
-
+- <a href="http://www.riesam.biz/images/CalculatorBrain.png" target="_blank" ><img src="http://www.riesam.biz/images/CalculatorBrain.png" width="200px"/></a>
+- 
 
 Assignment III - Graphing Calculator
 
