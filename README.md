@@ -2,7 +2,7 @@
 
 <strong>Homework Assignment Solutions for Stanford CS193P Winter 2015</strong>
 
-- Built with Xcode 6.2
+- Requires Xcode 6.3
 
 
 
