@@ -25,7 +25,7 @@ Assignment II - Calculator Brain
 <hr>
 Assignment III - Graphing Calculator
 - In Progress
-<br /><a href="http://www.riesam.biz/images/GraphingCalculator.png" target="_blank" ><img src="http://www.riesam.biz/images/GraphingCalculator.png" width="380px"/></a>
+<br /><a href="http://www.riesam.biz/images/GraphingCalculator.png" target="_blank" ><img src="http://www.riesam.biz/images/GraphingCalculator.png" width="420px"/></a>
 
 <hr>
 Assignment IV - Smashtag Mentions
