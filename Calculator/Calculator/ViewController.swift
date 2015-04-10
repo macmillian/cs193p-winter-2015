@@ -20,10 +20,10 @@ class ViewController: UIViewController {
     
     @IBAction func back(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
-            if countElements(display.text!) > 0 {
+            if count(display.text!) > 0 {
                 var text = display.text!
                 text = dropLast(text)
-                if countElements(text) > 0 {
+                if count(text) > 0 {
                     display.text = text
                 }else{
                     display.text = "0"
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
                     userIsInTheMiddleOfTypingANumber = true
                 }
             }
-            println("digit = \(digit)")
+            //println("digit = \(digit)")
             addToHistory(digit)
         }
     }
@@ -81,18 +81,18 @@ class ViewController: UIViewController {
         }
         addToHistory(operation)
         switch operation {
-        case "×": performOperation { $0 * $1 }
-        case "÷": performOperation { $1 / $0 }
-        case "+": performOperation { $0 + $1 }
-        case "−": performOperation { $1 - $0 }
-        case "√": performOperation { sqrt($0) }
-        case "sin": performOperation { sin($0) }
-        case "cos": performOperation { cos($0) }
+        case "×": performBinaryOperation { $0 * $1 }
+        case "÷": performBinaryOperation { $1 / $0 }
+        case "+": performBinaryOperation { $0 + $1 }
+        case "−": performBinaryOperation { $1 - $0 }
+        case "√": performUnaryOperation { sqrt($0) }
+        case "sin": performUnaryOperation { sin($0) }
+        case "cos": performUnaryOperation { cos($0) }
         case "π":
                 displayValue =  M_PI
                 //enter()
                 performEnter("constant")
-        case "±": performOperation { $0 * -1 }
+        case "±": performUnaryOperation { -$0  }
         default: break
         }
         
@@ -103,17 +103,24 @@ class ViewController: UIViewController {
         history.text = " "
         operandStack.removeAll()
         history.text = " "
-        println("operandStack = \(operandStack)")
+        //println("operandStack = \(operandStack)")
     }
     
-    func performOperation(operation: (Double, Double) -> Double) {
+    /*
+     * NOTE: I renamed the overloaded performOperation() functions to be two separate functions because
+     * Objective-C does not support method overloading.  The the overloaded functions were working in Xcode 6.2
+     * but generate errors in Xcode 6.3.   See stackover flow
+     * http://stackoverflow.com/questions/29457720/swift-compiler-error-which-i-dont-understand
+    */
+
+    func performBinaryOperation(operation: (Double, Double) -> Double) {
         if operandStack.count >= 2 {
             displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
             performEnter("operation")
         }
     }
     
-    func performOperation(operation: Double -> Double) {
+    func performUnaryOperation(operation: Double -> Double) {
         if operandStack.count >= 1 {
             displayValue = operation(operandStack.removeLast())
             performEnter("operation")
@@ -166,7 +173,7 @@ class ViewController: UIViewController {
         }else {
             displayValue = 0
         }
-        println("operandStack = \(operandStack)")
+        //println("operandStack = \(operandStack)")
         
     }
     

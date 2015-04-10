@@ -22,10 +22,10 @@ class ViewController: UIViewController {
     
     @IBAction func back(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
-            if countElements(display.text!) > 0 {
+            if count(display.text!) > 0 {
                 var text = display.text!
                 text = dropLast(text)
-                if countElements(text) > 0 {
+                if count(text) > 0 {
                     display.text = text
                 }else{
                     display.text = " "

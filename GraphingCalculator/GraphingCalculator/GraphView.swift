@@ -19,14 +19,10 @@ class GraphView: UIView {
     
     var color: UIColor = UIColor.blackColor() { didSet { setNeedsDisplay() } }
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
     
-    @IBInspectable var scale: CGFloat {
-        get {
-            return defaults.objectForKey("GraphViewController.Scale") as? CGFloat ?? 50.0
-        }
-        set {
-            defaults.setObject(newValue, forKey: "GraphViewController.Scale")
+    
+    @IBInspectable var scale: CGFloat = 50.0{
+        didSet {
             updateRange()
             setNeedsDisplay()
         }

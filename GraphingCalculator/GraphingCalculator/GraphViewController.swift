@@ -19,6 +19,8 @@ class GraphViewController: UIViewController, GraphViewDataSource
         
         //println("view bounds  \(graphView.bounds)")
         //println("view bounds.size.width  \(graphView.bounds.size.width)")
+        
+        super.viewDidAppear(animated)
     }
     
     // MARK: - GraphView data source
@@ -44,9 +46,34 @@ class GraphViewController: UIViewController, GraphViewDataSource
             var tap = UITapGestureRecognizer(target: graphView, action: "processTap:")
             tap.numberOfTapsRequired = 2
             graphView.addGestureRecognizer(tap)
+        
+//            graphView.axesOrigin = origin
+//       
+//            graphView.scale = scale
+//    
         }
     }
-
+    
+//    private let defaults = NSUserDefaults.standardUserDefaults()
+//
+//    var scale: CGFloat {
+//        get { return defaults.objectForKey("GraphViewController.Scale") as? CGFloat ?? 50.0 }
+//        set { defaults.setObject(newValue, forKey: "GraphViewController.Scale") }
+//    }
+//    
+//    private var origin: CGPoint {
+//        get {
+//            var origin = CGPoint()
+//            if let originArray = defaults.objectForKey("GraphViewController.Origin") as? [CGFloat] {
+//                origin.x = originArray.first!
+//                origin.y = originArray.last!
+//            }
+//            return origin
+//        }
+//        set {
+//            defaults.setObject([newValue.x, newValue.y], forKey: "GraphViewController.Origin")
+//        }
+//    }
     
     @IBOutlet weak var programLabel: UILabel!
     
