@@ -13,19 +13,19 @@ Lecture series can be viewed on iTunes U: <a target="_blank"  href="https://itun
 <hr>
 Assignment I - Calculator 
 - Complete (includes extra credit tasks)
-<br /><a href="http://www.riesam.biz/images/Calculator.png" target="_blank" ><img src="http://www.riesam.biz/images/Calculator.png" width="200px"/></a>
+<br /><a href="http://www.riesam.biz/images/Calculator.png" target="_blank" ><img src="http://www.riesam.biz/images/Calculator.png" width="170px"/></a>
 
 <hr>
 Assignment II - Calculator Brain
 - Complete, except for extra credit task #3  
 - Travis CI  <a href="https://travis-ci.org/riesamac/cs193p-winter-2015"><img src="https://travis-ci.org/riesamac/cs193p-winter-2015.svg?branch=master" /><a/>
-<br /><a href="http://www.riesam.biz/images/CalculatorBrain.png" target="_blank" ><img src="http://www.riesam.biz/images/CalculatorBrain.png" width="200px"/></a>
+<br /><a href="http://www.riesam.biz/images/CalculatorBrain.png" target="_blank" ><img src="http://www.riesam.biz/images/CalculatorBrain.png" width="170px"/></a>
 
 
 <hr>
 Assignment III - Graphing Calculator
 - In Progress
-<br /><a href="http://www.riesam.biz/images/GraphingCalculator.png" target="_blank" ><img src="http://www.riesam.biz/images/CalculatorBrain.png" width="200px"/></a>
+<br /><a href="http://www.riesam.biz/images/GraphingCalculator.png" target="_blank" ><img src="http://www.riesam.biz/images/GraphingCalculator.png" width="380px"/></a>
 
 <hr>
 Assignment IV - Smashtag Mentions
