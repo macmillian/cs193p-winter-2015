@@ -18,7 +18,6 @@ Assignment I - Calculator
 <hr>
 Assignment II - Calculator Brain
 - Complete, except for extra credit task #3  
-- Travis CI  <a href="https://travis-ci.org/riesamac/cs193p-winter-2015"><img src="https://travis-ci.org/riesamac/cs193p-winter-2015.svg?branch=master" /><a/>
 <br /><a href="http://www.riesam.biz/images/CalculatorBrain.png" target="_blank" ><img src="http://www.riesam.biz/images/CalculatorBrain.png" width="170px"/></a>
 
 
