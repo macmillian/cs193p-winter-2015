@@ -101,7 +101,6 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func clear(sender: UIButton) {
         display.text = " "
-        //history.text = " "
         brain.clear()
         brain.variableValues.removeValueForKey("M")
         
@@ -164,7 +163,6 @@ class CalculatorViewController: UIViewController {
                 //}
             }
             userIsInTheMiddleOfTypingANumber = false
-            //history.text = brain.description != "" ? brain.description + " =" : ""
         }
     }
     
@@ -184,8 +182,7 @@ class CalculatorViewController: UIViewController {
             switch identifier {
                 case "Show Graph View":
                     if let gvc = destination as? GraphViewController {
-                        println("CVC.prepareForSegue: brain.program \(brain.program) ")
-                        //gvc.title = brain.description == "" ? "Graph" : brain.description.componentsSeparatedByString(", ").last
+                        //println("CVC.prepareForSegue: brain.program \(brain.program) ")
                         gvc.program = brain.program
                 }
                 default:

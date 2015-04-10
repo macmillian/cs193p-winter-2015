@@ -56,8 +56,6 @@ class CalculatorBrain {
     
     private var error: String?
     
-    //private var lastOp = Op?()
-    
     init(){
         func learnOp(op: Op) {
             knownOps[op.description] = op
@@ -136,9 +134,9 @@ class CalculatorBrain {
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        println("\(opStack) =  \(result) with \(remainder) left over")
-        println("variables \(variableValues) ")
-        println("program \(program) ")
+        //println("\(opStack) =  \(result) with \(remainder) left over")
+        //println("variables \(variableValues) ")
+        //println("program \(program) ")
         return result
     }
     
@@ -173,7 +171,6 @@ class CalculatorBrain {
     func clear(){
         opStack.removeAll()
         variableValues = Dictionary<String, Double>()
-        //lastOp = nil
     }
     func removeLast() -> Double? {
         if(opStack.count > 0){
@@ -238,16 +235,15 @@ class CalculatorBrain {
     }
     
     //return y value for x
-    //used by GraphingCalculator
+    //used by GraphViewController to generate x,y coord for graph
     func y(x: Double) -> Double? {
         variableValues["M"] = x
         if let y = evaluate() {
-            println("x: \(x) y: \(y)")
+            //println("x: \(x) y: \(y)")
             return y
         }
-        println("x: \(x) y: is nil")
+        //println("x: \(x) y: is nil")
         return nil
     }
-    
     
 }

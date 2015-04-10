@@ -58,7 +58,7 @@ class GraphViewController: UIViewController, GraphViewDataSource
         }
         set {
             brain.program = newValue
-            println("GVC: brain.program \(brain.program) ")
+            //println("GVC: brain.program \(brain.program) ")
         }
     }
 

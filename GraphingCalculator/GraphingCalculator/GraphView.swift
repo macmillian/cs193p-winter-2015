@@ -12,12 +12,6 @@ protocol GraphViewDataSource: class {
     func pointsForGraphView(sender: GraphView) -> [CGPoint]
 }
 
-
-//struct GraphViewRange {
-//    var min_x: Double
-//    var max_x: Double
-//}
-
 @IBDesignable
 class GraphView: UIView {
 
@@ -29,7 +23,7 @@ class GraphView: UIView {
     
     @IBInspectable var scale: CGFloat {
         get {
-            return defaults.objectForKey("GraphViewController.Scale") as? CGFloat ?? contentScaleFactor
+            return defaults.objectForKey("GraphViewController.Scale") as? CGFloat ?? 50.0
         }
         set {
             defaults.setObject(newValue, forKey: "GraphViewController.Scale")
@@ -49,8 +43,6 @@ class GraphView: UIView {
         }
     }
     
-//    var pointsPerUnit: CGFloat = 50.0 { didSet { setNeedsDisplay() } }
-    
     //range on x axis for which to request data points
     var range_min_x: CGFloat = -100.0
     var range_max_x:  CGFloat = 100.0
@@ -69,8 +61,6 @@ class GraphView: UIView {
         
     }
     
-
-    
     // viewBounds passed to AxesDrawer
     private var viewBounds: CGRect {
         return CGRect(
@@ -78,14 +68,8 @@ class GraphView: UIView {
             size: bounds.size
         )
     }
-    
-
-    
-//    let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.mainScreen().bounds.size)
-    
-    
+  
     weak var dataSource: GraphViewDataSource?
-    
 
     override func drawRect(rect: CGRect) {
 
@@ -94,7 +78,6 @@ class GraphView: UIView {
             color: color,
             contentScaleFactor: contentScaleFactor
         )
-        
         axesDrawer.drawAxesInRect(
             viewBounds,
             origin: axesOrigin,
