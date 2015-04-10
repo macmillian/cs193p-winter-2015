@@ -56,8 +56,6 @@ class CalculatorBrain {
     
     private var error: String?
     
-    //private var lastOp = Op?()
-    
     init(){
         func learnOp(op: Op) {
             knownOps[op.description] = op
@@ -170,7 +168,6 @@ class CalculatorBrain {
     func clear(){
         opStack.removeAll()
         variableValues = Dictionary<String, Double>()
-        //lastOp = nil
     }
     func removeLast() -> Double? {
         if(opStack.count > 0){

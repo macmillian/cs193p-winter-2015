@@ -41,8 +41,6 @@ class ViewController: UIViewController {
             updateUI()
             
         }
-        
-        //addToHistory("🔙")
     }
     
     @IBAction func plusMinus(sender: UIButton) {
@@ -54,7 +52,6 @@ class ViewController: UIViewController {
             }else{
                 display.text = "-" + text
             }
-            //addToHistory("±")
         }else{
             operate(sender)
         }
@@ -101,7 +98,6 @@ class ViewController: UIViewController {
     
     @IBAction func clear(sender: UIButton) {
         display.text = " "
-        //history.text = " "
         brain.clear()
         brain.variableValues.removeValueForKey("M")
         
@@ -153,20 +149,6 @@ class ViewController: UIViewController {
             return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
-//            if let value = newValue{
-//                display.text = "\(value)"
-//            }else{
-//                display.text = "0"
-//            }
-//            
-//            userIsInTheMiddleOfTypingANumber = false
-            
-            
-//            if (newValue != nil) {
-//                let numberFormatter = NSNumberFormatter()
-//                numberFormatter.numberStyle = .DecimalStyle
-//                numberFormatter.maximumFractionDigits = 10
-//                display.text = numberFormatter.stringFromNumber(newValue!)
             if let value = newValue{
                 display.text = "\(value)"
             } else {
@@ -177,18 +159,11 @@ class ViewController: UIViewController {
                 }
             }
             userIsInTheMiddleOfTypingANumber = false
-            //history.text = brain.description != "" ? brain.description + " =" : ""
         }
     }
     
     func updateUI(){
         history.text = brain.description
-        
-//        if let result = brain.evaluate() {
-//            displayValue = result
-//        } else {
-//            displayValue = 0
-//        }
     }
 }
 
