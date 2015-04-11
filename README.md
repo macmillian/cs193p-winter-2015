@@ -23,11 +23,12 @@ Assignment II - Calculator Brain
 
 <hr>
 Assignment III - Graphing Calculator
-- In Progress
+- Main Tasks Completed, Extra Credit Tasks In Progress
 <br /><a href="http://www.riesam.biz/images/GraphingCalculator.png" target="_blank" ><img src="http://www.riesam.biz/images/GraphingCalculator.png" width="420px"/></a>
 
 <hr>
 Assignment IV - Smashtag Mentions
-
+- In Progress
+- Twitter library updated to fix incompatibilites with Xcode 6.3 
 <hr>
 Assignment V - Animation
