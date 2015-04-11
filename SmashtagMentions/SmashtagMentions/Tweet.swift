@@ -5,6 +5,9 @@
 //  Created by CS193p Instructor.
 //  Copyright (c) 2015 Stanford University. All rights reserved.
 //
+//  Modified 4/11/15 by jrm @ Riesam LLC to fix incompatibilities with Xcode 6.3
+//
+
 
 import Foundation
 
@@ -16,26 +19,44 @@ import Foundation
 
 public class Tweet : Printable
 {
-    public let text: String
-    public let user: User
-    public let created: NSDate
-    public let id: String?
-    public let media = [MediaItem]()
-    public let hashtags = [IndexedKeyword]()
-    public let urls = [IndexedKeyword]()
-    public let userMentions = [IndexedKeyword]()
+    //jrm removed 4/11/15
+    //public let text: String
+    //public let user: User
+    //public let created: NSDate
+    //public let id: String?
+    //public let media = [MediaItem]()
+    //public let hashtags = [IndexedKeyword]()
+    //public let urls = [IndexedKeyword]()
+    //public let userMentions = [IndexedKeyword]()
+    
+    //jrm added 4/11/15
+    public var text: String
+    public var user: User
+    public var created: NSDate
+    public var id: String?
+    public var media = [MediaItem]()
+    public var hashtags = [IndexedKeyword]()
+    public var urls = [IndexedKeyword]()
+    public var userMentions = [IndexedKeyword]()
 
     public struct IndexedKeyword: Printable
     {
-        public let keyword: String              // will include # or @ or http:// prefix
-        public let range: Range<String.Index>   // index into the Tweet's text property only
-        public let nsrange: NSRange             // index into an NS[Attributed]String made from the Tweet's text
+        //jrm removed 4/11/15
+        //public let keyword: String              // will include # or @ or http:// prefix
+        //public let range: Range<String.Index>   // index into the Tweet's text property only
+        //public let nsrange: NSRange             // index into an NS[Attributed]String made from the Tweet's text
+        
+        //jrm added 4/11/15
+        public var keyword: String              // will include # or @ or http:// prefix
+        public var range: Range<String.Index>   // index into the Tweet's text property only
+        public var nsrange: NSRange = NSRange()           // index into an NS[Attributed]String made from the Tweet's text
 
         public init?(data: NSDictionary?, inText: String, prefix: String?) {
             let indices = data?.valueForKeyPath(TwitterKey.Entities.Indices) as? NSArray
             if let startIndex = (indices?.firstObject as? NSNumber)?.integerValue {
                 if let endIndex = (indices?.lastObject as? NSNumber)?.integerValue {
-                    let length = countElements(inText)
+                    //let length = countElements(inText) //jrm removed 4/11/15
+                    let length = count(inText) //jrm added 4/11/15
                     if length > 0 {
                         let start = max(min(startIndex, length-1), 0)
                         let end = max(min(endIndex, length), 0)
@@ -129,12 +150,13 @@ public class Tweet : Printable
 }
 
 private extension NSString {
-    func rangeOfString(substring: NSString, nearRange: NSRange) -> NSRange {
+    func rangeOfString(substring: String, nearRange: NSRange) -> NSRange { //jrm added 4/11/15
+    //func rangeOfString(substring: NSString, nearRange: NSRange) -> NSRange { //jrm removed 4/11/15
         var start = max(min(nearRange.location, length-1), 0)
         var end = max(min(nearRange.location + nearRange.length, length), 0)
         var done = false
         while !done {
-            let range = rangeOfString(substring, options: NSStringCompareOptions.allZeros, range: NSMakeRange(start, end-start))
+            let range = rangeOfString(substring, options: NSStringCompareOptions.allZeros, range: NSMakeRange(start, end-start))  
             if range.location != NSNotFound {
                 return range
             }

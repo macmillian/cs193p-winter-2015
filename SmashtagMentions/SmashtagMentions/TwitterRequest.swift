@@ -5,6 +5,8 @@
 //  Created by CS193p Instructor.
 //  Copyright (c) 2015 Stanford University. All rights reserved.
 //
+//  Modified 4/11/15 by jrm @ Riesam LLC to fix incompatibilities with Xcode 6.3
+//
 
 import Foundation
 import Accounts
@@ -25,7 +27,8 @@ private var twitterAccount: ACAccount?
 public class TwitterRequest
 {
     public let requestType: String
-    public let parameters = Dictionary<String, String>()
+    //public let parameters = Dictionary<String, String>() //jrm removed 4/11/15
+    public var parameters = Dictionary<String, String>() //jrm added 4/11/15
     
     // designated initializer
     public init(_ requestType: String, _ parameters: Dictionary<String, String> = [:]) {
@@ -90,7 +93,9 @@ public class TwitterRequest
     //   with the JSON results converted to a Property List
     
     public func fetch(handler: (results: PropertyList?) -> Void) {
-        performTwitterRequest(SLRequestMethod.GET, handler)
+        //performTwitterRequest(SLRequestMethod.GET, handler) //jrm removed 4/11/15
+        performTwitterRequest(SLRequestMethod.GET, handler: handler) //jrm added 4/11/15
+
     }
     
     // generates a request for older Tweets than were returned by self
@@ -123,7 +128,8 @@ public class TwitterRequest
             URL: NSURL(string: "\(TwitterURLPrefix)\(self.requestType)\(jsonExtension)"),
             parameters: self.parameters
         )
-        performTwitterRequest(request, handler)
+        //performTwitterRequest(request, handler) //jrm removed 4/11/15
+        performTwitterRequest(request, handler: handler) //jrm added 4/11/15
     }
     
     // sends the request to Twitter

@@ -5,6 +5,8 @@
 //  Created by CS193p Instructor.
 //  Copyright (c) 2015 Stanford University. All rights reserved.
 //
+//  Modified 4/11/15 by jrm @ Riesam LLC to fix incompatibilities with Xcode 6.3
+//
 
 import Foundation
 
@@ -12,11 +14,20 @@ import Foundation
 
 public struct User: Printable
 {
-    public let screenName: String
-    public let name: String
-    public let profileImageURL: NSURL?
-    public let verified: Bool = false
-    public let id: String!
+    //jrm removed 4/11/15
+    //public let screenName: String
+    //public let name: String
+    //public let profileImageURL: NSURL?
+    //public let verified: Bool = false
+    //public var verified: Bool = false
+    //public let id: String!
+    
+    //jrm added 4/11/15
+    public var screenName: String
+    public var name: String
+    public var profileImageURL: NSURL?
+    public var verified: Bool = false
+    public var id: String!
     
     public var description: String { var v = verified ? " ✅" : ""; return "@\(screenName) (\(name))\(v)" }
 
